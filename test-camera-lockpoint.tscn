@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="SphereMesh" id=1]
+
+[node name="test-camera-lockpoint" type="MeshInstance"]
+transform = Transform( 3.28304, 0, 0, 0, 3.28304, 0, 0, 0, 3.28304, 0, 0, 0 )
+mesh = SubResource( 1 )
