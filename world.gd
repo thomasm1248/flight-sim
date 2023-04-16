@@ -27,6 +27,5 @@ func _process(_delta):
 	# Update dial
 	$hud.updateSpeedDial($plane.velocity.length())
 
-
 func _on_plane_crashed():
 	respawnPlane()
