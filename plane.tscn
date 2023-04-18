@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://plane.gd" type="Script" id=1]
 [ext_resource path="res://follow.gd" type="Script" id=2]
@@ -11,53 +11,53 @@
 [sub_resource type="CubeMesh" id=3]
 
 [sub_resource type="CapsuleShape" id=4]
-
-[sub_resource type="BoxShape" id=5]
-extents = Vector3( 0.326148, 0.0203027, 0.223825 )
+radius = 0.0536803
+height = 0.52254
 
 [node name="plane" type="KinematicBody"]
-transform = Transform( 0.416563, 0, 0, 0, 0.416563, 0, 0, 0, 0.416563, 0, 0, 0.00959578 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00959578 )
 script = ExtResource( 1 )
 
 [node name="body" type="MeshInstance" parent="."]
-transform = Transform( 0.304862, 0, 0, 0, 0.304862, 0, 0, 0, 1.26559, 0, 0, 0 )
+transform = Transform( 0.0572425, 0, 0, 0, 0.0572425, 0, 0, 0, 0.237634, 0, 0.0162644, 0.0725634 )
 mesh = SubResource( 1 )
 
 [node name="wings" type="MeshInstance" parent="."]
-transform = Transform( 2.25675, 0, 0, 0, 0.0209851, 0, 0, 0, 0.306479, 0, -0.169016, -0.405619 )
+transform = Transform( 0.42374, 0, 0, 0, 0.00394028, 0, 0, 0, 0.0575462, 0, -0.015471, -0.00359782 )
 mesh = SubResource( 2 )
 
 [node name="elevator" type="MeshInstance" parent="."]
-transform = Transform( 0.759285, 0, 0, 0, 0.0208377, 0, 0, 0, 0.223448, 0, 0.316358, 1.68924 )
+transform = Transform( 0.142567, 0, 0, 0, 0.0039126, 0, 0, 0, 0.0419558, 0, 0.0756655, 0.389744 )
 mesh = SubResource( 3 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.305491, 0, 0, 0, 0.305491, 0, 0, 0, 1.27391, 0, 0, 0 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="."]
-transform = Transform( 2.31509, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.166759, -0.405668 )
-shape = SubResource( 5 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="."]
-transform = Transform( 2.31509, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.317996, 1.6861 )
-shape = SubResource( 5 )
-
 [node name="follow" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.270778, 2.91816 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.270778, 0.792025 )
 script = ExtResource( 2 )
 
 [node name="pivot" type="Position3D" parent="follow"]
 
 [node name="Camera" type="Camera" parent="follow/pivot"]
 transform = Transform( 1, 0, 0, 0, 0.983445, 0.181206, 0, -0.181206, 0.983445, 0, 0.925034, 2.63945 )
+current = true
 fov = 109.355
 far = 3706.6
 
 [node name="left-wing-trail" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24031, -0.167708, -0.0970503 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.419136, -0.0152998, 0.0540634 )
+fromWidth = 0.01
+toWidth = 0.02
+lifespan = 1.0
+startColor = Color( 1, 1, 1, 0.235294 )
+endColor = Color( 1, 1, 1, 0.709804 )
 
 [node name="right-wing-trail" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24, -0.168, -0.097 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.419, -0.015, 0.054 )
+fromWidth = 0.01
+toWidth = 0.02
+lifespan = 1.0
+startColor = Color( 1, 1, 1, 0.235294 )
+endColor = Color( 1, 1, 1, 0.709804 )
 
-[node name="Node" type="Node" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0151705, 0.0793535 )
+shape = SubResource( 4 )

@@ -1,10 +1,10 @@
 extends Position3D
 
 var followDistance = 0
-var rigidDistance = 3
-var followTenacity = 0.06
+var rigidDistance = 0.5
+var followTenacity = 0.12
 var uprightTenacity = 0.08
-var cameraHeight = 2
+var cameraHeight = 0.2
 
 var position = Vector3()
 var up = Vector3.UP

@@ -2,18 +2,19 @@ extends KinematicBody
 
 # Basic plane
 var velocity = Vector3()
-var thrust = 1
-var boostThrust = 4
-var driftThrust = 0.3
-var lift = 0.5
+var thrust = 0.03
+var boostThrust = 0.12
+var driftThrust = 0.005
+var lift = 0.1
 var driftLift = 0.5
-var g = 0.5
-var airResistance = Vector3(0.5, 7, 1)
-var driftAirResistance = airResistance * 0.5
-var dragDistanceX = 60
-var dragDistanceY = 0.7
+var g = 0.01
+var gDist = 10
+var airResistance = Vector3(20, 80, 5)
+var driftAirResistance = airResistance * 0.2
+var dragDistanceX = 20
+var dragDistanceY = 10
 var rollForce = 2.5
-var pitchForce = 2.5
+var pitchForce = 1.8
 
 # Control calibration
 var rollControl = 0
@@ -79,7 +80,7 @@ func _physics_process(delta):
 		velocity += transform.basis.y * velocity.dot(-transform.basis.z) * lift * delta
 	
 	# Apply gravity
-	velocity += Vector3.DOWN * g * delta
+	addForce(transform.basis.z * -gDist, Vector3.DOWN * g, delta)
 
 	# Apply air-resistance
 	var resistance

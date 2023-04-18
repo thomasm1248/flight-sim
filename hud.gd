@@ -1,4 +1,4 @@
 extends CanvasLayer
 
 func updateSpeedDial(speed):
-	$"Container/speed-dial".setRotation(speed / 3 * PI * 2)
+	$"Container/speed-dial".setRotation(speed / 0.2 * PI * 2)
