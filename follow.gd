@@ -1,9 +1,9 @@
 extends Position3D
 
 var followDistance = 0
-var rigidDistance = 0.5
-var followTenacity = 0.12
-var uprightTenacity = 0.08
+var rigidDistance = 0.7
+var followTenacity = 8
+var uprightTenacity = 5
 var cameraHeight = 0.2
 
 var position = Vector3()
@@ -17,13 +17,13 @@ func _physics_process(delta):
 	var positionOfPlane = plane.global_transform.origin
 	var dirToPlane = positionOfPlane - position
 	var currentDist = dirToPlane.length()
-	var forwardDist = (currentDist - followDistance) * followTenacity
+	var forwardDist = (currentDist - followDistance) * followTenacity * delta
 	position = position.linear_interpolate(positionOfPlane, forwardDist / currentDist)
 	global_transform.origin = position
 	var camDist = (positionOfPlane - position).length() + rigidDistance
 	
 	# Update the up direction
-	up = (up + plane.transform.basis.y * uprightTenacity).normalized()
+	up = (up + plane.transform.basis.y * uprightTenacity * delta).normalized()
 	
 	# Place pivot
 	$pivot.global_transform = plane.global_transform
