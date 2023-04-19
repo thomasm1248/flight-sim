@@ -31,3 +31,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6371, 43.0729, 111.71 )
 
 [node name="plane" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.0288866, 0, 0, 0, 0.0288866, 0, 0, 0, 0.0288866, 0.84935, 34.6899, 97.919 )
+
+[connection signal="crashed" from="plane" to="." method="_on_plane_crashed"]
