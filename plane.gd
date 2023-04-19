@@ -35,6 +35,8 @@ func respawn(spawnTransform):
 		velocity = Vector3()
 		global_transform = spawnTransform
 		$follow.position = spawnTransform.origin
+		$"right-wing-trail".reset()
+		$"left-wing-trail".reset()
 
 func addForce(position, force, delta):
 	

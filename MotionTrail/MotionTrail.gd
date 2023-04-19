@@ -21,6 +21,11 @@ export var endColor = Color(1.0, 1.0, 1.0, 0.0)
 
 var oldPos
 
+func reset():
+	points = []
+	widths = []
+	lifePoints = []
+
 func _ready():
 	oldPos = get_global_transform().origin
 
@@ -48,9 +53,13 @@ func _process(delta):
 		return
 	
 	begin(Mesh.PRIMITIVE_TRIANGLE_STRIP)
+	var phaseIn = lifePoints[0] / lifespan
+	if phaseIn > 0.8: phaseIn = 1
+	else: phaseIn = clamp(lerp(0, 1, (phaseIn-0.8)*3+1), 0, 1)
+	var currentEndColor = startColor.linear_interpolate(endColor, phaseIn)
 	for i in range(points.size()):
 		var t = float(i) / (points.size() - 1.0)
-		var currColor = startColor.linear_interpolate(endColor, 1 - t)
+		var currColor = startColor.linear_interpolate(currentEndColor, 1 - t)
 		set_color(currColor)
 		
 		var currWidth = widths[i][0] - pow(1-t, scaleAcceleration) * widths[i][1]
