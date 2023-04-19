@@ -1,15 +1,18 @@
 extends KinematicBody
 
-# Basic plane
+# Basic plane #################################
+var gravity = 0.01
+var maxHorizontalSpeed = 0.07
+var boostFactor = 2
+var driftFactor = 0.2
+var airResistance = Vector3(20, 80, 10)#Vector3(20, 80, 5)
+###############################################
 var velocity = Vector3()
-var thrust = 0.03
-var boostThrust = 0.12
-var driftThrust = 0.005
-var lift = 0.1
-var driftLift = 0.5
-var g = 0.01
-var airResistance = Vector3(20, 80, 5)
-var driftAirResistance = airResistance * 0.2
+var thrust = pow(maxHorizontalSpeed, 2) * airResistance.z
+var boostThrust = thrust * pow(boostFactor, 2)
+var lift = gravity / maxHorizontalSpeed
+var driftAirResistance = airResistance * driftFactor
+var driftThrust = pow(maxHorizontalSpeed, 2) * driftAirResistance.z
 var dragDistanceX = 20
 var dragDistanceY = 10
 var rollForce = 2.5
@@ -77,13 +80,10 @@ func _physics_process(delta):
 #	velocity += Vector3.FORWARD * thrust * delta # for thrust tuning
 
 	# Apply lift
-	if Input.is_action_pressed("drift"):
-		velocity += transform.basis.y * velocity.dot(-transform.basis.z) * driftLift * delta
-	else:
-		velocity += transform.basis.y * velocity.dot(-transform.basis.z) * lift * delta
+	velocity += transform.basis.y * velocity.dot(-transform.basis.z) * lift * delta
 	
 	# Apply gravity
-	velocity += Vector3.DOWN * g * delta
+	velocity += Vector3.DOWN * gravity * delta
 
 	# Apply air-resistance
 	var resistance
@@ -102,6 +102,7 @@ func _physics_process(delta):
 
 	# Move the plane
 	var collision = move_and_collide(velocity)
+	print(velocity.length())
 	
 	# Crash if there's a collision
 	if collision:
