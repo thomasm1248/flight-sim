@@ -47,7 +47,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.419136, -0.0152998, 0.05406
 fromWidth = 0.01
 toWidth = 0.02
 lifespan = 1.0
-startColor = Color( 1, 1, 1, 0.235294 )
+startColor = Color( 1, 1, 1, 0 )
 endColor = Color( 1, 1, 1, 0.709804 )
 
 [node name="right-wing-trail" parent="." instance=ExtResource( 3 )]
@@ -55,7 +55,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.419, -0.015, 0.054 )
 fromWidth = 0.01
 toWidth = 0.02
 lifespan = 1.0
-startColor = Color( 1, 1, 1, 0.235294 )
+startColor = Color( 1, 1, 1, 0 )
 endColor = Color( 1, 1, 1, 0.709804 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
