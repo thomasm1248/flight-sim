@@ -65,6 +65,7 @@ func _physics_process(delta):
 	rotate(transform.basis.x, pitchControl * pitchForce * delta)
 	var autoRudder = transform.basis.x.dot(Vector3.UP)
 	rotate(transform.basis.y, autoRudder * yawForce * delta)
+	transform.basis = transform.basis.orthonormalized()
 
 	# Apply thrust
 	if Input.is_action_pressed("boost"):
