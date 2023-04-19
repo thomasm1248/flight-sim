@@ -8,13 +8,13 @@ var driftThrust = 0.005
 var lift = 0.1
 var driftLift = 0.5
 var g = 0.01
-var gDist = 10
 var airResistance = Vector3(20, 80, 5)
 var driftAirResistance = airResistance * 0.2
 var dragDistanceX = 20
 var dragDistanceY = 10
 var rollForce = 2.5
 var pitchForce = 1.8
+var yawForce = 0.2
 
 # Control calibration
 var rollControl = 0
@@ -63,6 +63,8 @@ func _physics_process(delta):
 	# Apply rotation
 	rotate(transform.basis.z, rollControl * rollForce * delta)
 	rotate(transform.basis.x, pitchControl * pitchForce * delta)
+	var autoRudder = transform.basis.x.dot(Vector3.UP)
+	rotate(transform.basis.y, autoRudder * yawForce * delta)
 
 	# Apply thrust
 	if Input.is_action_pressed("boost"):
@@ -80,7 +82,7 @@ func _physics_process(delta):
 		velocity += transform.basis.y * velocity.dot(-transform.basis.z) * lift * delta
 	
 	# Apply gravity
-	addForce(transform.basis.z * -gDist, Vector3.DOWN * g, delta)
+	velocity += Vector3.DOWN * g * delta
 
 	# Apply air-resistance
 	var resistance
