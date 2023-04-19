@@ -5,7 +5,7 @@ var gravity = 0.01
 var maxHorizontalSpeed = 0.07
 var boostFactor = 2
 var driftFactor = 0.2
-var airResistance = Vector3(20, 80, 10)#Vector3(20, 80, 5)
+var airResistance = Vector3(20, 80, 10)
 ###############################################
 var velocity = Vector3()
 var thrust = pow(maxHorizontalSpeed, 2) * airResistance.z
