@@ -30,11 +30,18 @@ func lockCamera(point):
 	$follow/pivot.look_at(point, Vector3.UP)
 
 func respawn(spawnTransform):
+		# Reset controls
 		pitchControl = 0
 		rollControl = 0
+		# Reset velocity
 		velocity = Vector3()
+		# Move to spawn point
 		global_transform = spawnTransform
-		$follow.position = spawnTransform.origin
+		# Reset camera
+		$follow.position = spawnTransform.origin + transform.basis.z * 20
+		$follow.up = Vector3.UP
+		# Pull camera backward
+		# Reset wing trails
 		$"right-wing-trail".reset()
 		$"left-wing-trail".reset()
 
@@ -104,7 +111,6 @@ func _physics_process(delta):
 
 	# Move the plane
 	var collision = move_and_collide(velocity)
-	print(velocity.length())
 	
 	# Crash if there's a collision
 	if collision:

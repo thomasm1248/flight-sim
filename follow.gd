@@ -9,9 +9,6 @@ var cameraHeight = 0.2
 var position = Vector3()
 var up = Vector3.UP
 
-func _ready():
-	position = global_transform.origin
-
 func _physics_process(delta):
 	
 	var plane = get_parent()
@@ -21,7 +18,7 @@ func _physics_process(delta):
 	var dirToPlane = positionOfPlane - position
 	var currentDist = dirToPlane.length()
 	var forwardDist = (currentDist - followDistance) * followTenacity
-	position = position.linear_interpolate(positionOfPlane, forwardDist)
+	position = position.linear_interpolate(positionOfPlane, forwardDist / currentDist)
 	global_transform.origin = position
 	var camDist = (positionOfPlane - position).length() + rigidDistance
 	
