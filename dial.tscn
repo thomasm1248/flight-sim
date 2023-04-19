@@ -14,8 +14,8 @@ gradient = SubResource( 5 )
 [sub_resource type="QuadMesh" id=2]
 
 [sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0, 0.681564, 0.994413, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 0.788946, 0.788946, 0.788946, 0.852676, 0.146192, 0.146192, 0.146192, 0.404009, 1, 1, 1, 0 )
+offsets = PoolRealArray( 0, 0.52514, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.584314, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture2D" id=4]
 gradient = SubResource( 3 )
