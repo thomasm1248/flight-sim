@@ -33,7 +33,8 @@ func _physics_process(delta):
 	var dirToPlane = positionOfPlane - position
 	var currentDist = dirToPlane.length()
 	var forwardDist = (currentDist - followDistance) * followTenacity * delta
-	position = position.linear_interpolate(positionOfPlane, forwardDist / currentDist)
+	if currentDist != 0:
+		position = position.linear_interpolate(positionOfPlane, forwardDist / currentDist)
 	global_transform.origin = position
 	var camDist = (positionOfPlane - position).length() + rigidDistance
 	

@@ -38,7 +38,8 @@ func respawn(spawnTransform):
 		# Move to spawn point
 		global_transform = spawnTransform
 		# Reset camera
-		$follow.position = spawnTransform.origin + transform.basis.z * 20
+		$follow.position = spawnTransform.origin + global_transform.basis.z * $follow.followDistance
+		$follow.up = Vector3.UP
 		# Reset wing trails
 		$"right-wing-trail".reset()
 		$"left-wing-trail".reset()
