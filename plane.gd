@@ -14,10 +14,10 @@ var lift = gravity / maxHorizontalSpeed
 var driftAirResistance = airResistance * driftFactor
 var driftThrust = pow(maxHorizontalSpeed, 2) * driftAirResistance.z
 var dragDistanceX = 20
-var dragDistanceY = 10
+var dragDistanceY = 1
 var rollForce = 2.5
-var pitchForce = 1.8
-var yawForce = 0.2
+var pitchForce = 1.2
+var yawForce = 0.4
 
 # Control calibration
 var rollControl = 0
