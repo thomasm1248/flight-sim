@@ -110,6 +110,11 @@ func _physics_process(delta):
 	# Move the plane
 	var collision = move_and_collide(velocity)
 	
+	# Shake camera
+	var traumaRate = velocity.length() / maxHorizontalSpeed - 1
+	$follow.trauma = traumaRate
+	#$follow.addTrauma(traumaRate * delta * 10)
+	
 	# Crash if there's a collision
 	if collision:
 		emit_signal("crashed")
