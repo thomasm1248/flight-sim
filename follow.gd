@@ -20,9 +20,8 @@ func addTrauma(newTrauma):
 func _ready():
 	# Initialize noise
 	noise.seed = 1 # doesn't really matter
-	noise.octaves = 4
-	noise.period = 0.05
-	noise.persistence
+	noise.octaves = 3
+	noise.period = 0.10
 
 func _physics_process(delta):
 	
@@ -54,8 +53,8 @@ func _physics_process(delta):
 	# Shake camera
 	if trauma > 0:
 		var shake = pow(trauma, 2)
-		var rotateShake = shake * 0.01
-		var translateShake = shake * 0.015
+		var rotateShake = shake * 0.007
+		var translateShake = shake * 0.012
 		var cam = $pivot/Camera
 		cam.rotate_object_local(cam.transform.basis.x, rotateShake * noise.get_noise_1d(time))
 		cam.rotate_object_local(cam.transform.basis.y, rotateShake * noise.get_noise_1d(time + 10))
