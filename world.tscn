@@ -25,9 +25,33 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29838, 27.8899, 93.3831 )
 [node name="plane" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.0288866, 0, 0, 0, 0.0288866, 0, 0, 0, 0.0288866, 0.84935, 34.6899, 97.919 )
 
+[node name="rocky-valley" parent="." instance=ExtResource( 1 )]
+
 [node name="tree" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.670914, 0, 2.09028, 0, 2.19531, 0, -2.09028, 0, -0.670914, -22.8392, 0.0848894, 30.815 )
 
-[node name="rocky-valley" parent="." instance=ExtResource( 1 )]
+[node name="tree2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2.4268, 0, 0.733063, 0, 2.5351, 0, -0.733063, 0, 2.4268, 29.2397, -1.57515, -38.3562 )
+
+[node name="tree3" parent="." instance=ExtResource( 3 )]
+transform = Transform( -2.45375, 0, 0.637051, 0, 2.5351, 0, -0.637051, 0, -2.45375, 11.2363, 1.25655, 62.2733 )
+
+[node name="tree4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 3.28648, 0, 0, 0, 3.28648, 0, 0, 0, 3.28648, -44.007, 6.99371, 5.44849 )
+
+[node name="tree5" parent="." instance=ExtResource( 3 )]
+transform = Transform( -3.29915, 0, 1.43465, 0, 3.59758, 0, -1.43465, 0, -3.29915, -64.1858, 4.77851, 34.9911 )
+
+[node name="tree6" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.78641, 0, -2.37091, 0, 2.96858, 0, 2.37091, 0, 1.78641, -38.1392, 6.85356, 73.0368 )
+
+[node name="tree7" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2.61521, 0, 1.38089, 0, 2.9574, 0, -1.38089, 0, 2.61521, 15.2311, -9.96873, 24.3999 )
+
+[node name="tree8" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.06294, 0, -2.41137, 0, 2.63525, 0, 2.41137, 0, -1.06294, -22.144, 6.19857, 7.24253 )
+
+[node name="tree9" parent="." instance=ExtResource( 3 )]
+transform = Transform( -3.98842, 0, 0.939882, 0, 4.09766, 0, -0.939882, 0, -3.98842, -19.3471, 2.11983, 50.5397 )
 
 [connection signal="crashed" from="plane" to="." method="_on_plane_crashed"]
