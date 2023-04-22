@@ -14,10 +14,6 @@ func _process(_delta):
 	var planeForwardNormal = -$plane.transform.basis.z
 	var planeDirection = planeForwardNormal - planeForwardNormal.dot(Vector3.UP) * Vector3.UP
 	
-	# Reposition camera
-	$"cam-pivot".transform.origin = $plane.transform.origin
-	$"cam-pivot".look_at($plane.transform.origin + planeDirection, Vector3.UP)
-	
 	# Lock plane's follow cam onto test lock point
 	if Input.is_action_just_pressed("lockCamera"):
 		lockCamera = !lockCamera
