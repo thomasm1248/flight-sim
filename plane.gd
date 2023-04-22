@@ -79,10 +79,10 @@ func _physics_process(delta):
 	transform.basis = transform.basis.orthonormalized()
 
 	# Apply thrust
-	if Input.is_action_pressed("boost"):
-		velocity += -transform.basis.z * boostThrust * delta
-	elif Input.is_action_pressed("drift"):
+	if Input.is_action_pressed("drift"):
 		velocity += -transform.basis.z * driftThrust * delta
+	elif Input.is_action_pressed("boost"):
+		velocity += -transform.basis.z * boostThrust * delta
 	else:
 		velocity += -transform.basis.z * thrust * delta
 #	velocity += Vector3.FORWARD * thrust * delta # for thrust tuning
